@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence
+	version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit
+		name="persistence-unit_demo"
+		transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
+		<!-- clasese -->
+		<class>ni.berroteran.psychoclinic.modelo.Paciente"</class>
+		
+		<properties>
+			<!-- =============================== -->
+			<!-- ===========DATABASE============ -->
+			<!-- =============================== -->
+			
+			
+			<!-- =============================== -->
+			<!-- ===========OTHER PROPS========== -->
+			<!-- =============================== -->
+			<!-- actualiza automáticamente el esquema, NO RECOMENDADO EN PRODUCCIÓN. Comprobar los grants del usuario -->
+			<property
+				name="hibernate.hbm2ddl.auto" value="update" />
+			<property
+				name="hibernate.show_sql" value="true" />
+			<!-- autocommit no recomendado por Hibernate -->
+			<property
+				name="hibernate.connection.autocommit" value="false" />
+			<!-- =============================== -->
+			<!-- ==============POOL============= -->
+			<!-- =============================== -->
+			<!-- Pool de conexiones con la integración Hibernate-C3P0 -->
+			<property
+				name="hibernate.connection.provider_class" value="org.hibernate.connection.C3P0ConnectionProvider" />
+			<property
+				name="hibernate.c3p0.acquire_increment" value="5" />
+			<property
+				name="hibernate.c3p0.idle_test_period" value="100" />
+			<property
+				name="hibernate.c3p0.max_size" value="50" />
+			<property
+				name="hibernate.c3p0.max_statements" value="0" />
+			<property
+				name="hibernate.c3p0.min_size" value="5" />
+			<property
+				name="hibernate.c3p0.timeout" value="100" />
+		</properties>
+	</persistence-unit>
+</persistence>
